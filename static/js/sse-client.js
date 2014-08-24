@@ -22,13 +22,15 @@
       return cb(new Error('Connection request timed out.'));
     }, TIMEOUT);
 
+    var self = this;
+
     this.on('connected', function(event) {
       if (!event || event.type !== 'open') {
         return cb(new Error('Connection failed.'));
       }
 
       window.clearTimeout(timeout);
-      return cb(null, event);
+      return cb(null, event, self.es);
     });
   };
 

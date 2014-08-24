@@ -29,9 +29,5 @@ server.listen(PORT, function(err) {
     throw err;
   }
 
-  // creates server-sent events support and registration at /sse/register
-  sse.create(server);
-  sse.registerEvents();
-
   console.log('SSE Server listening on port:', PORT);
 });

@@ -11,6 +11,6 @@
   "dependencies": {
     "ejs": "1.0.0",
     "express": "4.8.5",
-    "sse": "0.0.5"
+    "redis": "^0.12.1"
   }
 }
