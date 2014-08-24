@@ -1,0 +1,16 @@
+{
+  "name": "server_sent_events",
+  "version": "0.0.1",
+  "description": "Server-Sent Events",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Colin MacDonald",
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "1.0.0",
+    "express": "4.8.5",
+    "sse": "0.0.5"
+  }
+}
