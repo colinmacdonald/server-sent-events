@@ -4,7 +4,7 @@
 (function() {
   'use strict';
 
-  var sseClient = new SSEClient('/connect');
+  var sseClient = new SSEClient('/connect/1');
   sseClient.connect(function(err, event, es) {
     if (err) {
       throw err;
@@ -19,7 +19,6 @@
 
     sseClient.on('error', function(event) {
       console.log('Error:', event);
-      console.log('ARGS', arguments);
     });
   });
 })();

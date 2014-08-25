@@ -9,7 +9,6 @@ var express = require('express');
 
 var api = require('./lib/routers/api');
 var views = require('./lib/routers/views');
-var sse = require('./lib/sse');
 
 /** @const */
 var PORT = process.env.PORT || 3000;
