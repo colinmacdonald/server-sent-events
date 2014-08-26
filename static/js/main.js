@@ -4,21 +4,42 @@
 (function() {
   'use strict';
 
-  var sseClient = new SSEClient('/connect/1');
-  sseClient.connect(function(err, event, es) {
-    if (err) {
-      throw err;
-    }
+  var $ = window.$;
 
-    console.log('Connected');
-    window.es = es;
+  var sseClient = new SSEClient('myAccount', 'myApp', 'lobby');
 
-    sseClient.on('message', function(event) {
-      console.log('Message:', event.data);
+  function connect() {
+    console.log('connecting...');
+    sseClient.connect(function(err, conn, es) {
+      if (err) {
+        throw err;
+      }
+
+      console.log('Connected');
+      window.es = es;
+
+      sseClient.on('message', function(event) {
+        console.log('Message:', event.data);
+      });
+
+      sseClient.on('error', function(event) {
+        console.log('Error:', event);
+      });
     });
+  }
 
-    sseClient.on('error', function(event) {
-      console.log('Error:', event);
+  function send() {
+    sseClient.send('lobby', 'test1234', function(err) {
+      console.log('sent', err);
     });
+  }
+
+  $(document).ready(function() {
+    var $connect = $('.connect-btn');
+    var $send = $('.send-btn');
+
+    $connect.click(connect);
+    $send.click(send);
   });
+
 })();
