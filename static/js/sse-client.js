@@ -57,15 +57,11 @@
       url: BASE + 'trigger/' + this.account + '/' + this.app + '/?rooms=' +
         rooms + '&data=' + data,
       success: function() {
-        cb(null);
+        cb(null, data);
       },
       error: function(res) {
         cb(new Error('Error: ' + res.status));
-      },
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      dataType: 'json'
+      }
     };
 
     $.ajax(opts);

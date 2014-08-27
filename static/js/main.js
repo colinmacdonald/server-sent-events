@@ -29,8 +29,10 @@
   }
 
   function send() {
-    sseClient.send('lobby', 'test1234', function(err) {
-      console.log('sent', err);
+    sseClient.send('lobby', 'test1234', function(err, data) {
+      if (err) {
+        throw err;
+      }
     });
   }
 
